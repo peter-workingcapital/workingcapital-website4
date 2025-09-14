@@ -126,16 +126,14 @@ const Hero = () => {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="relative"
           >
-            {/* Main Image Placeholder */}
+            {/* Main Image */}
             <div className="relative">
-              <div className="w-full h-96 lg:h-[500px] bg-gradient-to-br from-primary-100 to-primary-200 rounded-2xl flex items-center justify-center">
-                <div className="text-center space-y-4">
-                  <div className="w-20 h-20 bg-primary-600 rounded-full mx-auto flex items-center justify-center">
-                    <Users className="w-10 h-10 text-white" />
-                  </div>
-                  <p className="text-primary-700 font-semibold">Professional Team Photo</p>
-                  <p className="text-primary-600 text-sm">Startup office or team illustration</p>
-                </div>
+              <div className="w-full h-96 lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+                <img 
+                  src="/team-photo.jpg" 
+                  alt="WorkingCapital Professional Team - HR Consulting Experts"
+                  className="w-full h-full object-cover"
+                />
               </div>
               
               {/* Floating Cards */}
