@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
 
     // Send email to business owner
     const { data, error } = await resend.emails.send({
-      from: 'WorkingCapital Contact <contact@workingcapitalou.com>',
+      from: 'WorkingCapital Contact <peter@workingcapitalou.com>',
       to: ['peter@workingcapitalou.com'],
       subject: `New Contact Form Submission from ${name}`,
       html: `
