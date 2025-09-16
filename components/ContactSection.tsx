@@ -20,6 +20,7 @@ const ContactSection = () => {
   const isInView = useInView(ref, { once: true, margin: '-100px' })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [submitError, setSubmitError] = useState<string | null>(null)
 
   const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>()
 
@@ -42,17 +43,33 @@ const ContactSection = () => {
 
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true)
+    setSubmitError(null)
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000))
-    
-    console.log('Form submitted:', data)
-    setIsSubmitted(true)
-    setIsSubmitting(false)
-    reset()
-    
-    // Reset success message after 5 seconds
-    setTimeout(() => setIsSubmitted(false), 5000)
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+
+      if (!response.ok) {
+        const errorData = await response.json()
+        throw new Error(errorData.error || 'Failed to submit form')
+      }
+
+      setIsSubmitted(true)
+      reset()
+      
+      // Reset success message after 5 seconds
+      setTimeout(() => setIsSubmitted(false), 5000)
+    } catch (error) {
+      console.error('Form submission error:', error)
+      setSubmitError(error instanceof Error ? error.message : 'An unexpected error occurred')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -243,6 +260,17 @@ const ContactSection = () => {
                   )}
                 </motion.button>
 
+                {submitError && (
+                  <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+                    <p className="text-red-800 text-sm">
+                      <strong>Error:</strong> {submitError}
+                    </p>
+                    <p className="text-red-600 text-xs mt-1">
+                      Please try again or contact us directly at peter@workingcapitalou.com
+                    </p>
+                  </div>
+                )}
+
                 <p className="text-sm text-gray-500 text-center">
                   No obligation. Free assessment. Results guaranteed.
                 </p>
@@ -294,9 +322,24 @@ const ContactSection = () => {
 
                 <div className="flex items-center space-x-3">
                   <Calendar className="w-5 h-5 text-primary-600" />
-                  <div>
-                    <p className="font-semibold text-gray-900">Schedule</p>
-                    <p className="text-gray-600">Available for calls Mon-Fri 9AM-6PM CET</p>
+                  <div className="flex-1">
+                    <p className="font-semibold text-gray-900 mb-3">Schedule</p>
+                    <a
+                      href="https://calendar.app.google/NdiwAFxSaxG1B6PP9"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block"
+                    >
+                      <motion.button
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors duration-200 flex items-center space-x-2"
+                      >
+                        <Calendar className="w-4 h-4" />
+                        <span>Book an Appointment Directly</span>
+                      </motion.button>
+                    </a>
+                    <p className="text-xs text-gray-500 mt-2">Available Mon-Fri 9AM-6PM CET</p>
                   </div>
                 </div>
               </div>

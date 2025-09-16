@@ -130,7 +130,7 @@ const Hero = () => {
             <div className="relative">
               <div className="w-full h-96 lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
                 <img 
-                  src="/team-photo.png" 
+                  src="/team-photo.jpg" 
                   alt="WorkingCapital Professional Team - HR Consulting Experts"
                   className="w-full h-full object-cover"
                 />
