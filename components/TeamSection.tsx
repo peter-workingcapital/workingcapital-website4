@@ -28,7 +28,7 @@ const TeamSection = () => {
       }
     },
     {
-      name: "Sarah Martinez",
+      name: "Sara Rubrecht",
       role: "Senior HR Consultant",
       bio: "Specialist in technical team recruitment and culture building. Former engineering manager turned HR expert.",
       credentials: [
@@ -41,7 +41,7 @@ const TeamSection = () => {
       isPrimary: false
     },
     {
-      name: "David Chen",
+      name: "David Baker",
       role: "Compliance & Legal Specialist",
       bio: "International HR compliance expert with deep knowledge of European and US employment law.",
       credentials: [
