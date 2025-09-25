@@ -37,7 +37,7 @@ const TeamSection = () => {
         "Culture & engagement expert",
         "5+ years startup experience"
       ],
-      avatar: "SM",
+      avatar: "SR",
       isPrimary: false
     },
     {
@@ -50,7 +50,7 @@ const TeamSection = () => {
         "M&A integration specialist",
         "8+ years legal experience"
       ],
-      avatar: "DC",
+      avatar: "DB",
       isPrimary: false
     }
   ]
