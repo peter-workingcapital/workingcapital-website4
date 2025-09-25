@@ -21,7 +21,9 @@ const SolutionSection = () => {
         "Charge $300-500/hour for advice",
         "No execution, just strategy",
         "Long-term contracts required",
-        "Generic templates and processes"
+        "Generic templates and processes",
+        ""
+        ""
 
         
       ],
