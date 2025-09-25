@@ -26,19 +26,19 @@ const SolutionSection = () => {
       result: "You still do the work"
     },
     {
-      type: "HR Software",
+      type: "Hire in-house HR",
       icon: X,
       color: "text-orange-600",
       bgColor: "bg-orange-50",
       borderColor: "border-orange-200",
       features: [
-        "Requires HR expertise to use",
-        "Setup and training needed",
-        "You manage everything yourself",
-        "Monthly subscription fees",
-        "Generic workflows don't fit your needs"
+        "Specialises in a single HR discipline",
+        "High salary is a significant and unnecessary expense",
+        "Not enough work for a full-time position",
+        "Is paid to "figure things out"",
+        "Can introduce unneeded bureaucracy to an agile culture"
       ],
-      result: "You still need expertise"
+      result: "Expensive and narrow focus"
     },
     {
       type: "WorkingCapital",
@@ -48,7 +48,7 @@ const SolutionSection = () => {
       borderColor: "border-green-200",
       features: [
         "We execute everything for you",
-        "Fractional HR team at fixed cost",
+        "An entire HR team at fixed cost",
         "Startup-specific processes",
         "No long-term contracts",
         "Results guaranteed or money back"
@@ -66,17 +66,19 @@ const SolutionSection = () => {
           "Weekend handbook writing",
           "Compliance anxiety",
           "Equity confusion",
-          "15 hours/week on HR"
+          "15 hours/week on HR",
+          "Payroll run from spreadsheets"
         ]
       },
       after: {
         title: "After WorkingCapital",
         benefits: [
-          "6-week hiring process",
+          "4-week hiring process",
           "Professional handbooks delivered",
           "Compliance confidence",
           "Clear equity structure",
-          "0 hours/week on HR"
+          "Reliable payroll and analytics",
+          "0 hours/week on HR",
         ]
       }
     }
