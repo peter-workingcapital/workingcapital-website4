@@ -22,6 +22,8 @@ const SolutionSection = () => {
         "No execution, just strategy",
         "Long-term contracts required",
         "Generic templates and processes"
+
+        
       ],
       result: "You still do the work"
     },
