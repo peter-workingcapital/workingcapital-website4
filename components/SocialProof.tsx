@@ -49,7 +49,7 @@ const SocialProof = () => {
     { name: "Stealth Series A", industry: "Green Energy" },
     { name: "Infinity Global", industry: "Luxury Packaging" },
     { name: "X-HR", industry: "HR Tech" },
-    { name: "Air Up", industry: "CPG" }
+    { name: "Air Up", industry: "CPG" },
     { name: "Dost", industry: "FinTech" },
     { name: "BloomBoost Marketing", industry: "Marketing" },
   ]
