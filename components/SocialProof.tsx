@@ -20,38 +20,36 @@ const SocialProof = () => {
       results: "25 → 80 people in 10 months"
     },
     {
-      quote: "The Spain expansion was seamless thanks to WorkingCapital. They handled all the complex international hiring and compliance requirements while we focused on product development.",
-      author: "Marco Rodriguez",
+      quote: "The Spain expansion was seamless thanks to WorkingCapital. They handled all the complex international hiring and compliance requirements while we focused on serving our customers.",
+      author: "Janet Culpepper",
       role: "VP People",
       company: "Infinity Global",
-      avatar: "MR",
+      avatar: "JC",
       results: "Successful Spain expansion"
     },
     {
-      quote: "WorkingCapital became an extension of our team. They understand the startup mindset and deliver results, not just reports. Our hiring process is now 40% faster and our team is happier.",
-      author: "Alex Kim",
-      role: "CPO",
-      company: "X-HR",
-      avatar: "AK",
-      results: "40% faster hiring process"
+      quote: "WorkingCapital became an extension of our team. They understand the startup mindset and deliver results, not just reports. Our hiring process is now 40% faster and our processes run smoother than ever.",
+      author: "Adam Barbara",
+      role: "CEO",
+      company: "Dost",
+      avatar: "AB",
+      results: "40% faster hiring process, smooth HR processes"
     },
     {
-      quote: "From employee handbooks to equity planning, WorkingCapital handles everything. We went from spending 15 hours a week on HR to zero. That's time back in building our product.",
+      quote: "WorkingCapital took care of the entire HRIS migration from personio to HiBob flawlessly and ahead of schedule",
       author: "Jessica Park",
       role: "Founder & CTO",
-      company: "TechFlow",
+      company: "Stealth start-up in Green energy space",
       avatar: "JP",
-      results: "15 hours/week saved"
+      results: "HRIS transition without headaches"
     }
   ]
 
   const clientLogos = [
     { name: "Stealth Series A", industry: "Fintech" },
-    { name: "Infinity Global", industry: "SaaS" },
+    { name: "Infinity Global", industry: "Luxury Packaging" },
     { name: "X-HR", industry: "HR Tech" },
-    { name: "TechFlow", industry: "AI/ML" },
-    { name: "DataVault", industry: "Cybersecurity" },
-    { name: "CloudScale", industry: "Infrastructure" }
+    { name: "Air Up", industry: "CPG" }
   ]
 
   const caseStudies = [
@@ -72,11 +70,11 @@ const SocialProof = () => {
       metric: "100% success"
     },
     {
-      title: "Technical Team Integration",
-      company: "X-HR",
-      challenge: "HR processes for engineering teams",
-      solution: "Tech-focused HR strategies",
-      results: ["40% faster hiring", "Better candidate quality", "Reduced turnover"],
+      title: "Org strucutre redesign",
+      company: "Air up",
+      challenge: "Create high performing teams",
+      solution: "Reorganise to stream aligned teams",
+      results: ["Better communication", "Faster product development", "Increas"],
       metric: "40% improvement"
     }
   ]
