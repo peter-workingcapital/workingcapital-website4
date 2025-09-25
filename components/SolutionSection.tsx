@@ -23,7 +23,7 @@ const SolutionSection = () => {
         "Long-term contracts required",
         "Generic templates and processes",
         "",
-        ""
+        "",
 
         
       ],
