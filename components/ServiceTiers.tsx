@@ -23,11 +23,12 @@ const ServiceTiers = () => {
         "Basic compliance setup",
         "Hiring process design",
         "Onboarding framework",
-        "Basic policies & procedures"
+        "Basic policies & procedures",
+        "HR system implementation"
       ],
       clientProfile: "5-15 employees, first HR hire needed",
       roi: "Save 10+ hours/week",
-      price: "Starting at $3K/month",
+      price: "Starting at €3K/month",
       popular: false
     },
     {
@@ -39,7 +40,7 @@ const ServiceTiers = () => {
       borderColor: "border-blue-200",
       description: "For fast-growing companies that need comprehensive HR support",
       deliverables: [
-        "Advanced recruitment strategies",
+        "Advanced recruitment",
         "Performance management systems",
         "Compensation & equity planning",
         "Culture & engagement programs",
@@ -48,7 +49,7 @@ const ServiceTiers = () => {
       ],
       clientProfile: "15-50 employees, rapid growth phase",
       roi: "Save 15+ hours/week",
-      price: "Starting at $8K/month",
+      price: "Starting at €6K/month",
       popular: true
     },
     {
@@ -70,7 +71,7 @@ const ServiceTiers = () => {
       ],
       clientProfile: "50+ employees, international expansion",
       roi: "Save 20+ hours/week",
-      price: "Starting at $15K/month",
+      price: "Starting at €15K/month",
       popular: false
     }
   ]
