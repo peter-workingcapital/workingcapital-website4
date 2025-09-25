@@ -22,7 +22,7 @@ const SolutionSection = () => {
         "No execution, just strategy",
         "Long-term contracts required",
         "Generic templates and processes",
-        ""
+        "",
         ""
 
         
