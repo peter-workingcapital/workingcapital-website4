@@ -37,7 +37,7 @@ const SolutionSection = () => {
       borderColor: "border-orange-200",
       features: [
         "Specialises in a single HR discipline",
-        "Salary is a significant and unnecessary expense",
+        "Salary is a significant expense",
         "Not enough work for a full-time position",
         "Is paid to figure things out",
         "Introduces bureaucracy to an agile culture"
