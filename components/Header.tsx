@@ -38,7 +38,7 @@ const Header = () => {
             className="flex items-center"
           >
             <h1 className="text-2xl font-bold gradient-text">
-              WORKING CAPITAL
+              WorkingCapital
             </h1>
           </motion.div>
 
