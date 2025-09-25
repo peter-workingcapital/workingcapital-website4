@@ -51,7 +51,7 @@ const SocialProof = () => {
     { name: "X-HR", industry: "HR Tech" },
     { name: "Air Up", industry: "CPG" },
     { name: "Dost", industry: "FinTech" },
-    { name: "BloomBoost Marketing", industry: "Marketing" },
+    { name: "BloomBoost Marketing", industry: "Marketing" }
   ]
 
   const caseStudies = [
@@ -76,7 +76,7 @@ const SocialProof = () => {
       company: "Air up",
       challenge: "Create high performing teams",
       solution: "Reorganise to stream aligned teams",
-      results: ["Better communication", "Faster product development", "Increas"],
+      results: ["Better communication", "Faster product development", "Increased revenue"],
       metric: "40% improvement"
     }
   ]
