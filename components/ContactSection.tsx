@@ -24,6 +24,8 @@ const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '6LeIxA
 
 const ContactSection = () => {
   const ref = useRef(null)
+  const recaptchaRef = useRef<HTMLDivElement>(null)
+  const widgetIdRef = useRef<number | null>(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
@@ -32,35 +34,75 @@ const ContactSection = () => {
 
   const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>()
 
-  // Load reCAPTCHA script
+  // Load reCAPTCHA script and render widget
   useEffect(() => {
     // Check if already loaded
-    if (window.grecaptcha) {
-      setRecaptchaLoaded(true)
+    if (window.grecaptcha?.ready) {
+      window.grecaptcha.ready(() => {
+        renderRecaptcha()
+        setRecaptchaLoaded(true)
+      })
       return
     }
 
     // Load script
     const script = document.createElement('script')
-    script.src = 'https://www.google.com/recaptcha/api.js'
+    script.src = 'https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit'
     script.async = true
     script.defer = true
-    script.onload = () => {
+    
+    // Set up callback for when script loads
+    (window as any).onRecaptchaLoad = () => {
+      renderRecaptcha()
       setRecaptchaLoaded(true)
     }
+    
     script.onerror = () => {
       console.error('Failed to load reCAPTCHA script')
       setSubmitError('Failed to load security verification. Please refresh the page.')
     }
+    
     document.body.appendChild(script)
 
     return () => {
-      // Cleanup if needed
+      // Cleanup
       if (script.parentNode) {
         script.parentNode.removeChild(script)
       }
+      delete (window as any).onRecaptchaLoad
     }
   }, [])
+
+  const renderRecaptcha = () => {
+    if (!recaptchaRef.current || widgetIdRef.current !== null) return
+    
+    try {
+      if (window.grecaptcha?.render) {
+        widgetIdRef.current = window.grecaptcha.render(recaptchaRef.current, {
+          sitekey: RECAPTCHA_SITE_KEY,
+          theme: 'light'
+        })
+      }
+    } catch (error) {
+      console.error('Error rendering reCAPTCHA:', error)
+    }
+  }
+
+  const resetRecaptcha = () => {
+    try {
+      if (window.grecaptcha && widgetIdRef.current !== null) {
+        window.grecaptcha.reset(widgetIdRef.current)
+      }
+    } catch (error) {
+      console.error('Error resetting reCAPTCHA:', error)
+      // If reset fails, try to re-render
+      if (recaptchaRef.current) {
+        recaptchaRef.current.innerHTML = ''
+        widgetIdRef.current = null
+        renderRecaptcha()
+      }
+    }
+  }
 
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true)
@@ -73,7 +115,17 @@ const ContactSection = () => {
       }
 
       // Get reCAPTCHA token
-      const recaptchaToken = window.grecaptcha.getResponse()
+      let recaptchaToken = null
+      try {
+        if (widgetIdRef.current !== null) {
+          recaptchaToken = window.grecaptcha.getResponse(widgetIdRef.current)
+        } else {
+          recaptchaToken = window.grecaptcha.getResponse()
+        }
+      } catch (error) {
+        console.error('Error getting reCAPTCHA response:', error)
+        throw new Error('Security verification error. Please refresh the page and try again.')
+      }
       
       if (!recaptchaToken) {
         throw new Error('Please complete the reCAPTCHA verification')
@@ -98,10 +150,8 @@ const ContactSection = () => {
       setIsSubmitted(true)
       reset()
       
-      // Reset reCAPTCHA
-      if (window.grecaptcha) {
-        window.grecaptcha.reset()
-      }
+      // Reset reCAPTCHA after successful submission
+      resetRecaptcha()
       
       // Reset success message after 5 seconds
       setTimeout(() => setIsSubmitted(false), 5000)
@@ -110,9 +160,7 @@ const ContactSection = () => {
       setSubmitError(error instanceof Error ? error.message : 'An unexpected error occurred')
       
       // Reset reCAPTCHA on error
-      if (window.grecaptcha) {
-        window.grecaptcha.reset()
-      }
+      resetRecaptcha()
     } finally {
       setIsSubmitting(false)
     }
@@ -244,14 +292,9 @@ const ContactSection = () => {
                 </div>
 
                 {/* reCAPTCHA */}
-                {recaptchaLoaded && (
-                  <div className="flex justify-center">
-                    <div 
-                      className="g-recaptcha" 
-                      data-sitekey={RECAPTCHA_SITE_KEY}
-                    ></div>
-                  </div>
-                )}
+                <div className="flex justify-center">
+                  <div ref={recaptchaRef}></div>
+                </div>
 
                 {/* Submit Button */}
                 <motion.button
