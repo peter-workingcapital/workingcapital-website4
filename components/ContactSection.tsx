@@ -45,17 +45,19 @@ const ContactSection = () => {
       return
     }
 
+    // Set up callback for when script loads
+    const handleRecaptchaLoad = () => {
+      renderRecaptcha()
+      setRecaptchaLoaded(true)
+    }
+    
+    // Attach callback to window
+    (window as any).onRecaptchaLoad = handleRecaptchaLoad
+
     // Load script
     const script = document.createElement('script')
     script.src = 'https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit'
     script.async = true
-    script.defer = true
-    
-    // Set up callback for when script loads
-    (window as any).onRecaptchaLoad = () => {
-      renderRecaptcha()
-      setRecaptchaLoaded(true)
-    }
     
     script.onerror = () => {
       console.error('Failed to load reCAPTCHA script')
