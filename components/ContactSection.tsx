@@ -108,7 +108,7 @@ const ContactSection = () => {
               Let's Grow Your Startup
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Book a free intro call and see how BloomBoost can take your marketing off your plate.
+              Book a free intro call and see how WorkingCapital can take HR off your plate.
             </p>
           </motion.div>
 
@@ -280,7 +280,7 @@ const ContactSection = () => {
                     <span className="text-2xl font-bold text-primary-700">BB</span>
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">
-                    BloomBoost Marketing
+                    WorkingCapital
                   </h3>
                   <p className="text-primary-600 font-semibold">
                     Your Startup's Growth Partner
@@ -302,8 +302,8 @@ const ContactSection = () => {
                     <Mail className="w-5 h-5 text-primary-600" />
                     <div>
                       <p className="font-semibold text-gray-900">Email</p>
-                      <a href="mailto:hello@bloomboost.co" className="text-primary-600 hover:text-primary-700">
-                        hello@bloomboost.co
+                      <a href="mailto:peter@workingcapitalou.com" className="text-primary-600 hover:text-primary-700">
+                        peter@workingcapitalou.com
                       </a>
                     </div>
                   </div>
@@ -385,7 +385,7 @@ const ContactSection = () => {
               {/* Trust Indicators */}
               <div className="bg-gradient-to-r from-primary-600 to-primary-700 rounded-2xl p-8 text-white">
                 <h3 className="text-xl font-bold mb-4">
-                  Why Choose BloomBoost?
+                  Why Choose WorkingCapital?
                 </h3>
                 
                 <div className="space-y-3">
