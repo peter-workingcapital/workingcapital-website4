@@ -34,20 +34,16 @@ const ContactSection = () => {
 
   const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>()
 
-  // Load reCAPTCHA script and render widget
+  // Load reCAPTCHA script
   useEffect(() => {
     // Check if already loaded
     if (window.grecaptcha?.ready) {
-      window.grecaptcha.ready(() => {
-        renderRecaptcha()
-        setRecaptchaLoaded(true)
-      })
+      setRecaptchaLoaded(true)
       return
     }
 
     // Set up callback for when script loads
     const handleRecaptchaLoad = () => {
-      renderRecaptcha()
       setRecaptchaLoaded(true)
     }
     
@@ -75,10 +71,32 @@ const ContactSection = () => {
     }
   }, [])
 
+  // Render reCAPTCHA widget when form is visible and script is loaded
+  useEffect(() => {
+    // Only render if form is visible (not showing success message)
+    if (!isSubmitted && recaptchaLoaded && recaptchaRef.current) {
+      // Small delay to ensure DOM is ready
+      const timer = setTimeout(() => {
+        if (widgetIdRef.current === null) {
+          renderRecaptcha()
+        }
+      }, 100)
+      
+      return () => clearTimeout(timer)
+    }
+  }, [isSubmitted, recaptchaLoaded])
+
   const renderRecaptcha = () => {
-    if (!recaptchaRef.current || widgetIdRef.current !== null) return
+    if (!recaptchaRef.current) return
     
     try {
+      // Clear existing content and reset widget ID
+      if (recaptchaRef.current) {
+        recaptchaRef.current.innerHTML = ''
+      }
+      widgetIdRef.current = null
+      
+      // Render new widget
       if (window.grecaptcha?.render) {
         widgetIdRef.current = window.grecaptcha.render(recaptchaRef.current, {
           sitekey: RECAPTCHA_SITE_KEY,
@@ -152,11 +170,17 @@ const ContactSection = () => {
       setIsSubmitted(true)
       reset()
       
-      // Reset reCAPTCHA after successful submission
-      resetRecaptcha()
+      // Clean up reCAPTCHA widget when showing success message
+      if (recaptchaRef.current) {
+        recaptchaRef.current.innerHTML = ''
+      }
+      widgetIdRef.current = null
       
       // Reset success message after 5 seconds
-      setTimeout(() => setIsSubmitted(false), 5000)
+      setTimeout(() => {
+        setIsSubmitted(false)
+        // Widget will be re-rendered by the useEffect watching isSubmitted
+      }, 5000)
     } catch (error) {
       console.error('Form submission error:', error)
       setSubmitError(error instanceof Error ? error.message : 'An unexpected error occurred')
