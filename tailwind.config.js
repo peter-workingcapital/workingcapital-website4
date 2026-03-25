@@ -9,16 +9,16 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          50: '#eff6ff',
-          100: '#dbeafe',
-          200: '#bfdbfe',
-          300: '#93c5fd',
-          400: '#60a5fa',
-          500: '#3b82f6',
-          600: '#2563eb',
-          700: '#1d4ed8',
-          800: '#1e40af',
-          900: '#1e3a8a',
+          50:  '#eef3f8',
+          100: '#d5e2ef',
+          200: '#afc8e0',
+          300: '#80a9cc',
+          400: '#528ab8',
+          500: '#306fa0',
+          600: '#203b5f',
+          700: '#172d49',
+          800: '#0e1e33',
+          900: '#070f1c',
         },
         secondary: {
           50: '#fefce8',
@@ -35,6 +35,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['Bricolage Grotesque', 'Inter', 'system-ui', 'sans-serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',

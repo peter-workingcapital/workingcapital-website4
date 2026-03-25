@@ -70,15 +70,17 @@ const Hero = () => {
               transition={{ delay: 0.7, duration: 0.6 }}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <motion.button
+              <motion.a
+                href="https://calendar.app.google/zP5o5YGc4A3wcmc69"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={scrollToContact}
                 className="btn-primary text-lg px-8 py-4 flex items-center justify-center group"
               >
-                Get Your Free HR Assessment
+                Book Your Free HR Audit
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </motion.button>
+              </motion.a>
               
               <motion.button
                 whileHover={{ scale: 1.05 }}

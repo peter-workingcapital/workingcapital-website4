@@ -408,7 +408,7 @@ const ContactSection = () => {
                   <div className="flex-1">
                     <p className="font-semibold text-gray-900 mb-3">Schedule</p>
                     <a
-                      href="https://calendar.app.google/YW71NnChJCYENeodA"
+                      href="https://calendar.app.google/zP5o5YGc4A3wcmc69"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-block"

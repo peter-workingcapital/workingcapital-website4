@@ -4,6 +4,7 @@ import ProblemSection from '../components/ProblemSection'
 import SolutionSection from '../components/SolutionSection'
 import ResultsDashboard from '../components/ResultsDashboard'
 import ServiceTiers from '../components/ServiceTiers'
+import SpecializedServices from '../components/SpecializedServices'
 import SocialProof from '../components/SocialProof'
 import TeamSection from '../components/TeamSection'
 import ContactSection from '../components/ContactSection'
@@ -18,6 +19,7 @@ export default function Home() {
       <SolutionSection />
       <ResultsDashboard />
       <ServiceTiers />
+      <SpecializedServices />
       <SocialProof />
       <TeamSection />
       <ContactSection />

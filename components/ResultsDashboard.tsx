@@ -253,19 +253,16 @@ const ResultsDashboard = () => {
             </div>
           </div>
           
-          <motion.button
+          <motion.a
+            href="https://calendar.app.google/zP5o5YGc4A3wcmc69"
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => {
-              const element = document.querySelector('#contact')
-              if (element) {
-                element.scrollIntoView({ behavior: 'smooth' })
-              }
-            }}
-            className="bg-white text-primary-600 font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors"
+            className="bg-white text-primary-600 font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors inline-block"
           >
             Get Your Custom ROI Analysis
-          </motion.button>
+          </motion.a>
         </motion.div>
       </div>
     </section>

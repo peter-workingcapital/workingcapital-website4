@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="10 10 320 60" width="320" height="60">
+  <rect x="10" y="10" width="320" height="60" fill="#f7f7f9"/>
+  <circle cx="26.0" cy="26.0" r="4.0" fill="#b8bfd2"/>
+  <circle cx="40.0" cy="26.0" r="4.0" fill="#b8bfd2"/>
+  <circle cx="54.0" cy="26.0" r="4.0" fill="#b8bfd2"/>
+  <circle cx="26.0" cy="40.0" r="4.0" fill="#b8bfd2"/>
+  <circle cx="40.0" cy="40.0" r="4.0" fill="#b8bfd2"/>
+  <circle cx="54.0" cy="40.0" r="5.0" fill="#203b5f"/>
+  <circle cx="26.0" cy="54.0" r="4.0" fill="#b8bfd2"/>
+  <circle cx="40.0" cy="54.0" r="4.0" fill="#b8bfd2"/>
+  <circle cx="54.0" cy="54.0" r="4.0" fill="#b8bfd2"/>
+  <text x="75" y="46" font-family="'Bricolage Grotesque', 'Segoe UI', 'Helvetica Neue', sans-serif" font-size="28" fill="#14141f" letter-spacing="0.3"><tspan font-weight="400">Working</tspan><tspan font-weight="700">Capital</tspan></text>
+</svg>

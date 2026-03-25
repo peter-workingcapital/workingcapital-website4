@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="10 10 320 60" width="320" height="60">
+  <circle cx="26.0" cy="26.0" r="4.0" fill="rgba(255,255,255,0.35)"/>
+  <circle cx="40.0" cy="26.0" r="4.0" fill="rgba(255,255,255,0.35)"/>
+  <circle cx="54.0" cy="26.0" r="4.0" fill="rgba(255,255,255,0.35)"/>
+  <circle cx="26.0" cy="40.0" r="4.0" fill="rgba(255,255,255,0.35)"/>
+  <circle cx="40.0" cy="40.0" r="4.0" fill="rgba(255,255,255,0.35)"/>
+  <circle cx="54.0" cy="40.0" r="5.0" fill="#7aafd4"/>
+  <circle cx="26.0" cy="54.0" r="4.0" fill="rgba(255,255,255,0.35)"/>
+  <circle cx="40.0" cy="54.0" r="4.0" fill="rgba(255,255,255,0.35)"/>
+  <circle cx="54.0" cy="54.0" r="4.0" fill="rgba(255,255,255,0.35)"/>
+  <text x="75" y="46" font-family="'Bricolage Grotesque', 'Segoe UI', 'Helvetica Neue', sans-serif" font-size="28" fill="#ffffff" letter-spacing="0.3"><tspan font-weight="400">Working</tspan><tspan font-weight="700">Capital</tspan></text>
+</svg>

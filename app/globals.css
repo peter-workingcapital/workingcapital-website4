@@ -1,15 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700&family=Inter:wght@400;500;600;700;800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --primary-blue: #2563eb;
-  --secondary-blue: #1d4ed8;
-  --text-primary: #1f2937;
+  --primary-blue: #203b5f;
+  --secondary-blue: #172d49;
+  --text-primary: #14141f;
   --text-secondary: #6b7280;
   --background: #ffffff;
-  --accent: #f59e0b;
+  --accent: #528ab8;
+  --dot-muted: #b8bfd2;
 }
 
 * {

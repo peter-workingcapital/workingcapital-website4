@@ -46,12 +46,12 @@ const SocialProof = () => {
   ]
 
  const clientLogos = [
-  { name: "Stealth Series A", industry: "Green Energy" },
-  { name: "Infinity Global", industry: "Luxury Packaging" },
-  { name: "X-HR", industry: "HR Tech" },
-  { name: "Air Up", industry: "CPG" },
-  { name: "Dost", industry: "FinTech" },
-  { name: "BloomBoost Marketing", industry: "Marketing" }
+  { name: "Air Up", industry: "CPG", logo: "https://logo.clearbit.com/air-up.com" },
+  { name: "Dost", industry: "FinTech", logo: "https://logo.clearbit.com/dost.io" },
+  { name: "Infinity Global", industry: "Luxury Packaging", logo: "https://logo.clearbit.com/infinityrp.com" },
+  { name: "Calico Wallpaper", industry: "Interior Design", logo: "https://logo.clearbit.com/calicowallpaper.com" },
+  { name: "X-HR", industry: "HR Tech", logo: null },
+  { name: "Stealth Series A", industry: "Green Energy", logo: null },
 ]
 
   const caseStudies = [
@@ -72,7 +72,7 @@ const SocialProof = () => {
       metric: "100% success"
     },
     {
-      title: "Org strucutre redesign",
+      title: "Org Structure Redesign",
       company: "Air up",
       challenge: "Create high performing teams",
       solution: "Reorganise to stream aligned teams",
@@ -188,14 +188,30 @@ const SocialProof = () => {
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
             {clientLogos.map((client, index) => (
-              <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center mx-auto mb-2">
-                  <span className="text-gray-600 font-semibold text-sm">
-                    {client.name.split(' ').map(word => word[0]).join('')}
-                  </span>
+              <div key={index} className="text-center flex flex-col items-center">
+                <div className="w-20 h-16 bg-white border border-gray-100 rounded-xl flex items-center justify-center mx-auto mb-2 shadow-sm p-2">
+                  {client.logo ? (
+                    <img
+                      src={client.logo}
+                      alt={client.name}
+                      className="max-h-10 max-w-full object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                      onError={(e) => {
+                        const target = e.currentTarget;
+                        target.style.display = 'none';
+                        const parent = target.parentElement;
+                        if (parent) {
+                          parent.innerHTML = `<span class="text-gray-500 font-semibold text-sm">${client.name.split(' ').map((w: string) => w[0]).join('')}</span>`;
+                        }
+                      }}
+                    />
+                  ) : (
+                    <span className="text-gray-500 font-semibold text-sm">
+                      {client.name.split(' ').map(word => word[0]).join('')}
+                    </span>
+                  )}
                 </div>
                 <div className="text-sm font-semibold text-gray-900">{client.name}</div>
-                <div className="text-xs text-gray-600">{client.industry}</div>
+                <div className="text-xs text-gray-500">{client.industry}</div>
               </div>
             ))}
           </div>

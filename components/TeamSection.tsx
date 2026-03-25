@@ -246,19 +246,16 @@ const TeamSection = () => {
           <p className="text-lg text-gray-600 mb-8">
             Schedule a free consultation with Peter to discuss your HR needs
           </p>
-          <motion.button
+          <motion.a
+            href="https://calendar.app.google/zP5o5YGc4A3wcmc69"
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => {
-              const element = document.querySelector('#contact')
-              if (element) {
-                element.scrollIntoView({ behavior: 'smooth' })
-              }
-            }}
-            className="btn-primary text-lg px-8 py-4"
+            className="btn-primary text-lg px-8 py-4 inline-block"
           >
             Schedule Free Consultation
-          </motion.button>
+          </motion.a>
         </motion.div>
       </div>
     </section>

@@ -16,23 +16,23 @@ const ProblemSection = () => {
       icon: Clock,
       title: "Your last hire took 4 months instead of 6 weeks",
       description: "Every day of delay costs you $1,000+ in lost productivity and opportunity cost.",
-      cost: "€60,000 in lost revenue",
+      cost: "$60,000 in lost revenue",
       color: "text-red-600",
       bgColor: "bg-red-100"
     },
     {
       icon: FileText,
       title: "Weekend spent writing employee handbooks",
-      description: "You're a founder, not an HR lawyer. Your time is worth €300/hour building your product.",
-      cost: "16 hours × €300 = €4,800",
+      description: "You're a founder, not an HR lawyer. Your time is worth $300/hour building your product.",
+      cost: "16 hours × $300 = $4,800",
       color: "text-orange-600",
       bgColor: "bg-orange-100"
     },
     {
       icon: AlertTriangle,
       title: "Compliance deadlines keeping you awake",
-      description: "One missed deadline can cost €50,000+ in fines and legal fees.",
-      cost: "€50,000+ in potential fines",
+      description: "One missed deadline can cost $50,000+ in fines and legal fees.",
+      cost: "$50,000+ in potential fines",
       color: "text-yellow-600",
       bgColor: "bg-yellow-100"
     },
@@ -40,7 +40,7 @@ const ProblemSection = () => {
       icon: Users,
       title: "Best engineer asking about equity structure",
       description: "Losing your top talent because you can't explain your equity plan properly.",
-      cost: "€80,000 to replace senior engineer",
+      cost: "$80,000 to replace senior engineer",
       color: "text-purple-600",
       bgColor: "bg-purple-100"
     }
@@ -134,8 +134,8 @@ const ProblemSection = () => {
                 <DollarSign className="w-8 h-8 text-red-600" />
               </div>
               <h4 className="text-lg font-semibold text-gray-900 mb-2">Revenue Lost</h4>
-              <div className="text-3xl font-bold text-red-600 mb-2">€390K</div>
-              <p className="text-sm text-gray-600">780 hours × €500/hour</p>
+              <div className="text-3xl font-bold text-red-600 mb-2">$390K</div>
+              <p className="text-sm text-gray-600">780 hours × $500/hour</p>
             </div>
 
             {/* Opportunity Cost */}
@@ -144,7 +144,7 @@ const ProblemSection = () => {
                 <TrendingDown className="w-8 h-8 text-purple-600" />
               </div>
               <h4 className="text-lg font-semibold text-gray-900 mb-2">Opportunity Cost</h4>
-              <div className="text-3xl font-bold text-purple-600 mb-2">€2M+</div>
+              <div className="text-3xl font-bold text-purple-600 mb-2">$2M+</div>
               <p className="text-sm text-gray-600">Product development delays</p>
             </div>
           </div>
@@ -161,7 +161,7 @@ const ProblemSection = () => {
                 Total Annual Cost of DIY HR
               </h4>
               <div className="text-4xl font-bold text-red-600 mb-2">
-                €2.2M+
+                $2.2M+
               </div>
               <p className="text-gray-600">
                 That's enough to hire 10 senior engineers or fund your next product launch
@@ -180,19 +180,16 @@ const ProblemSection = () => {
           <p className="text-lg text-gray-600 mb-6">
             Ready to stop bleeding money on HR tasks?
           </p>
-          <motion.button
+          <motion.a
+            href="https://calendar.app.google/zP5o5YGc4A3wcmc69"
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => {
-              const element = document.querySelector('#contact')
-              if (element) {
-                element.scrollIntoView({ behavior: 'smooth' })
-              }
-            }}
-            className="btn-primary text-lg px-8 py-4"
+            className="btn-primary text-lg px-8 py-4 inline-block"
           >
-            Get Your Free HR Assessment
-          </motion.button>
+            Book Your Free HR Audit
+          </motion.a>
         </motion.div>
       </div>
     </section>

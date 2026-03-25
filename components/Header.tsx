@@ -37,9 +37,9 @@ const Header = () => {
             whileHover={{ scale: 1.05 }}
             className="flex items-center"
           >
-            <h1 className="text-2xl font-bold gradient-text">
-              WorkingCapital
-            </h1>
+            <a href="/">
+              <img src="/logo-light.svg" alt="WorkingCapital" className="h-9 w-auto" />
+            </a>
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -57,14 +57,16 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center space-x-4">
-            <motion.button
+            <motion.a
+              href="https://calendar.app.google/zP5o5YGc4A3wcmc69"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => scrollToSection('#contact')}
               className="btn-primary"
             >
-              Get Free Assessment
-            </motion.button>
+              Book Free Call
+            </motion.a>
             <a
               href="tel:+34627717137"
               className="flex items-center text-gray-600 hover:text-primary-600 transition-colors"
@@ -108,14 +110,16 @@ const Header = () => {
                   </button>
                 ))}
                 <div className="px-4 pt-4 border-t border-gray-100">
-                  <motion.button
+                  <motion.a
+                    href="https://calendar.app.google/zP5o5YGc4A3wcmc69"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    onClick={() => scrollToSection('#contact')}
-                    className="w-full btn-primary"
+                    className="w-full btn-primary block text-center"
                   >
-                    Get Free Assessment
-                  </motion.button>
+                    Book Free Call
+                  </motion.a>
                   <a
                     href="tel:+34627717137"
                     className="flex items-center justify-center mt-3 text-gray-600 hover:text-primary-600 transition-colors"

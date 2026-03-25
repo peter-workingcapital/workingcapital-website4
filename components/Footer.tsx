@@ -2,12 +2,30 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
-import { useRef } from 'react'
-import { Phone, Mail, Linkedin, Download, ArrowRight } from 'lucide-react'
+import { useRef, useState } from 'react'
+import { Phone, Mail, Linkedin, Download, ArrowRight, CheckCircle } from 'lucide-react'
 
 const Footer = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
+  const [playbookEmail, setPlaybookEmail] = useState('')
+  const [playbookSubmitted, setPlaybookSubmitted] = useState(false)
+  const [showPlaybookForm, setShowPlaybookForm] = useState(false)
+
+  const handlePlaybookSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!playbookEmail) return
+    try {
+      await fetch('/api/playbook', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: playbookEmail }),
+      })
+    } catch {
+      // Fail silently — still let the user download
+    }
+    setPlaybookSubmitted(true)
+  }
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href)
@@ -33,8 +51,6 @@ const Footer = () => {
     resources: [
       { name: 'HR Scaling Playbook', href: '#', download: true },
       { name: 'Case Studies', href: '#results' },
-      { name: 'Blog', href: '#' },
-      { name: 'FAQ', href: '#' }
     ]
   }
 
@@ -50,9 +66,7 @@ const Footer = () => {
             transition={{ duration: 0.6 }}
             className="lg:col-span-2"
           >
-            <h3 className="text-2xl font-bold gradient-text mb-4">
-              WORKING CAPITAL
-            </h3>
+            <img src="/logo-white.svg" alt="WorkingCapital" className="h-10 w-auto mb-4" />
             <p className="text-gray-300 mb-6 leading-relaxed">
               The premier HR consulting firm for venture-backed startups. 
               We help you scale your team and focus on building your product.
@@ -173,17 +187,64 @@ const Footer = () => {
               </ul>
             </div>
             <div className="text-center">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-white text-primary-600 font-semibold px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors flex items-center mx-auto"
-              >
-                <Download className="w-5 h-5 mr-2" />
-                Download Free Playbook
-              </motion.button>
-              <p className="text-primary-100 text-sm mt-2">
-                No email required • Instant download
-              </p>
+              {playbookSubmitted ? (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="space-y-3"
+                >
+                  <CheckCircle className="w-10 h-10 text-white mx-auto" />
+                  <p className="text-white font-semibold">You're all set!</p>
+                  <a
+                    href="/hr-scaling-playbook.pdf"
+                    download
+                    className="bg-white text-primary-600 font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors flex items-center mx-auto w-fit"
+                  >
+                    <Download className="w-5 h-5 mr-2" />
+                    Download Your Playbook
+                  </a>
+                </motion.div>
+              ) : showPlaybookForm ? (
+                <motion.form
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  onSubmit={handlePlaybookSubmit}
+                  className="space-y-3"
+                >
+                  <p className="text-white font-semibold text-sm">Enter your email to get instant access:</p>
+                  <input
+                    type="email"
+                    required
+                    value={playbookEmail}
+                    onChange={(e) => setPlaybookEmail(e.target.value)}
+                    placeholder="your@email.com"
+                    className="w-full px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-white"
+                  />
+                  <button
+                    type="submit"
+                    className="w-full bg-white text-primary-600 font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors flex items-center justify-center"
+                  >
+                    <Download className="w-5 h-5 mr-2" />
+                    Send Me the Playbook
+                  </button>
+                  <p className="text-primary-100 text-xs">No spam. Unsubscribe anytime.</p>
+                </motion.form>
+              ) : (
+                <>
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => setShowPlaybookForm(true)}
+                    className="bg-white text-primary-600 font-semibold px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors flex items-center mx-auto"
+                  >
+                    <Download className="w-5 h-5 mr-2" />
+                    Download Free Playbook
+                  </motion.button>
+                  <p className="text-primary-100 text-sm mt-2">
+                    Free • Instant access
+                  </p>
+                </>
+              )}
             </div>
           </div>
         </motion.div>
@@ -198,19 +259,16 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             {/* Copyright */}
             <div className="text-gray-400 text-sm">
-              © 2024 WorkingCapital. All rights reserved.
+              © 2026 WorkingCapital. All rights reserved.
             </div>
 
             {/* Legal Links */}
             <div className="flex space-x-6 text-sm">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a href="/privacy" className="text-gray-400 hover:text-white transition-colors">
                 Privacy Policy
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a href="/terms" className="text-gray-400 hover:text-white transition-colors">
                 Terms of Service
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                Cookie Policy
               </a>
             </div>
 

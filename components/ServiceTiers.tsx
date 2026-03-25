@@ -28,7 +28,7 @@ const ServiceTiers = () => {
       ],
       clientProfile: "5-15 employees, first HR hire needed",
       roi: "Save 10+ hours/week",
-      price: "Starting at €3K/month",
+      price: "Starting at $3K/month",
       popular: false
     },
     {
@@ -49,7 +49,7 @@ const ServiceTiers = () => {
       ],
       clientProfile: "15-50 employees, rapid growth phase",
       roi: "Save 15+ hours/week",
-      price: "Starting at €6K/month",
+      price: "Starting at $6K/month",
       popular: true
     },
     {
@@ -71,7 +71,7 @@ const ServiceTiers = () => {
       ],
       clientProfile: "50+ employees, international expansion",
       roi: "Save 20+ hours/week",
-      price: "Starting at €15K/month",
+      price: "Starting at $15K/month",
       popular: false
     }
   ]
@@ -172,19 +172,21 @@ const ServiceTiers = () => {
               </div>
 
               {/* CTA Button */}
-              <motion.button
+              <motion.a
+                href="https://calendar.app.google/zP5o5YGc4A3wcmc69"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                onClick={scrollToContact}
                 className={`w-full py-3 px-4 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center ${
                   tier.popular
                     ? 'bg-primary-600 text-white hover:bg-primary-700'
                     : `border-2 ${tier.borderColor} ${tier.color} hover:bg-gray-50`
                 }`}
               >
-                Learn More
+                Book a Free Call
                 <ArrowRight className="w-4 h-4 ml-2" />
-              </motion.button>
+              </motion.a>
             </motion.div>
           ))}
         </div>
@@ -242,14 +244,16 @@ const ServiceTiers = () => {
           <p className="text-lg text-gray-600 mb-8">
             Get a free assessment to determine the perfect HR solution for your startup
           </p>
-          <motion.button
+          <motion.a
+            href="https://calendar.app.google/zP5o5YGc4A3wcmc69"
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={scrollToContact}
-            className="btn-primary text-lg px-8 py-4"
+            className="btn-primary text-lg px-8 py-4 inline-block"
           >
-            Get Your Free Assessment
-          </motion.button>
+            Book Your Free Assessment
+          </motion.a>
         </motion.div>
       </div>
     </section>
